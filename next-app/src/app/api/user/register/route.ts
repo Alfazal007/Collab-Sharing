@@ -27,23 +27,12 @@ export async function POST(request: Request) {
         try {
             const user = await prisma.user.findFirst({
                 where: {
-                    OR: [
-                        {
-                            email: result.data.email,
-                        },
-                        {
-                            username: result.data.username,
-                        },
-                    ],
+                    email: result.data.email,
                 },
             });
             if (user) {
                 return Response.json(
-                    new ApiResponse(
-                        400,
-                        "User with similar email or username exists",
-                        []
-                    ),
+                    new ApiResponse(400, "User with similar email exists", []),
                     { status: 400 }
                 );
             }
@@ -65,6 +54,7 @@ export async function POST(request: Request) {
                     username: result.data.username,
                     password: hashedPassword,
                     provider: "CREDENTIALS",
+                    name: result.data.username,
                 },
                 select: {
                     email: true,
