@@ -73,12 +73,9 @@ export default function () {
                             name="email"
                             render={({ field }) => (
                                 <FormItem>
-                                    <FormLabel>Username / Email</FormLabel>
+                                    <FormLabel> Email</FormLabel>
                                     <FormControl>
-                                        <Input
-                                            placeholder="username/email"
-                                            {...field}
-                                        />
+                                        <Input placeholder="email" {...field} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>

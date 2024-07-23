@@ -19,11 +19,20 @@ enum Provider {
 }
 
 model User {
-  id           String   @id @default(uuid())
-  username     String
-  name         String
-  email        String   @unique
-  provider     Provider @default(GOOGLE)
-  refreshToken String   @default("")
-  password     String
+  id                    String      @id @default(uuid())
+  username              String
+  name                  String
+  email                 String      @unique
+  provider              Provider    @default(GOOGLE)
+  password              String
+  interestedCommunities Community[] @relation("UserToCommunity")
+  Community             Community[]
+}
+
+model Community {
+  id      String @id @default(uuid())
+  name    String @unique
+  members User[] @relation("UserToCommunity")
+  admin   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId  String
 }

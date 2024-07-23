@@ -1,7 +1,10 @@
 {
-  "/(auth)/sign-up/page": "app/(auth)/sign-up/page.js",
-  "/(auth)/sign-in/page": "app/(auth)/sign-in/page.js",
   "/page": "app/page.js",
+  "/(app)/community/delete-community/page": "app/(app)/community/delete-community/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js"
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/community/delete/route": "app/api/community/delete/route.js",
+  "/(auth)/sign-in/page": "app/(auth)/sign-in/page.js",
+  "/(app)/community/create/page": "app/(app)/community/create/page.js",
+  "/api/community/create/route": "app/api/community/create/route.js"
 }
