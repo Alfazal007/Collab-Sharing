@@ -27,6 +27,7 @@ model User {
   password              String
   interestedCommunities Community[] @relation("UserToCommunity")
   Community             Community[]
+  Post                  Post[]
 }
 
 model Community {
@@ -35,4 +36,14 @@ model Community {
   members User[] @relation("UserToCommunity")
   admin   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId  String
+  posts   Post[] @relation("PostInCommunity")
+}
+
+model Post {
+  id                  String      @id @default(uuid())
+  title               String
+  content             String
+  creator             User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId              String
+  linkedToCommunities Community[] @relation("PostInCommunity")
 }

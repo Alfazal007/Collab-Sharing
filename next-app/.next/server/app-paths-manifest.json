@@ -1,10 +1,7 @@
 {
   "/page": "app/page.js",
-  "/(app)/community/delete-community/page": "app/(app)/community/delete-community/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/api/community/delete/route": "app/api/community/delete/route.js",
-  "/(auth)/sign-in/page": "app/(auth)/sign-in/page.js",
-  "/(app)/community/create/page": "app/(app)/community/create/page.js",
-  "/api/community/create/route": "app/api/community/create/route.js"
+  "/(app)/post/create/page": "app/(app)/post/create/page.js",
+  "/(app)/post/add-to-community/page": "app/(app)/post/add-to-community/page.js",
+  "/(app)/community/join-community/page": "app/(app)/community/join-community/page.js",
+  "/(app)/post/remove-from-community/page": "app/(app)/post/remove-from-community/page.js"
 }
