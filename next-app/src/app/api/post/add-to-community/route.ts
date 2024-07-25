@@ -46,6 +46,15 @@ export async function POST(request: Request) {
                 where: {
                     id: result.data.communityId,
                 },
+                select: {
+                    name: true,
+                    id: true,
+                    members: {
+                        select: {
+                            email: true,
+                        },
+                    },
+                },
             });
             if (!community) {
                 return Response.json(
