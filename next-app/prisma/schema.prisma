@@ -28,6 +28,7 @@ model User {
   interestedCommunities Community[] @relation("UserToCommunity")
   Community             Community[]
   Post                  Post[]
+  savedPost             Save[]
 }
 
 model Community {
@@ -46,4 +47,14 @@ model Post {
   creator             User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId              String
   linkedToCommunities Community[] @relation("PostInCommunity")
+  savedPost           Save[]
+}
+
+model Save {
+  id       String @id @default(uuid())
+  User     User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   String
+  category String
+  Post     Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId   String
 }
