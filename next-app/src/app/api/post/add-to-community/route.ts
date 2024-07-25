@@ -5,6 +5,7 @@ import { postToCommunityType } from "@/zodTypes/addPostToCommunityType";
 import { ZodError } from "@/zodTypes/registerUserType";
 import prisma from "@/db/db";
 import { ApiResponse } from "@/utils/ApiResponse";
+import { sendNotifications } from "@/utils/SendNotification";
 
 export async function POST(request: Request) {
     const session = await getServerSession(authOptions);
@@ -120,6 +121,12 @@ export async function POST(request: Request) {
                         },
                     },
                 });
+                // send the notification
+                await sendNotifications(
+                    community.name,
+                    `http://localhost:8000/post/${result.data.postId}`,
+                    community.members
+                );
                 return Response.json(
                     new ApiResponse(200, "Post added to community", {}),
                     {

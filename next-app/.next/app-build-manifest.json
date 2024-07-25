@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/(auth)/sign-up/page": [
+    "/(app)/post/create/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/sign-up/page.js"
+      "static/chunks/app/(app)/post/create/page.js"
     ],
     "/layout": [
       "static/chunks/webpack.js",
@@ -11,40 +11,15 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/(auth)/sign-in/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(auth)/sign-in/page.js"
-    ],
     "/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
     ],
-    "/(app)/community/create/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(app)/community/create/page.js"
-    ],
-    "/(app)/post/create/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(app)/post/create/page.js"
-    ],
     "/(app)/post/add-to-community/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/(app)/post/add-to-community/page.js"
-    ],
-    "/(app)/community/join-community/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(app)/community/join-community/page.js"
-    ],
-    "/(app)/post/remove-from-community/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/(app)/post/remove-from-community/page.js"
     ]
   }
 }

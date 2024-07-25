@@ -1,7 +1,9 @@
 {
-  "/page": "app/page.js",
   "/(app)/post/create/page": "app/(app)/post/create/page.js",
+  "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
+  "/api/post/create-post/route": "app/api/post/create-post/route.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/page": "app/page.js",
   "/(app)/post/add-to-community/page": "app/(app)/post/add-to-community/page.js",
-  "/(app)/community/join-community/page": "app/(app)/community/join-community/page.js",
-  "/(app)/post/remove-from-community/page": "app/(app)/post/remove-from-community/page.js"
+  "/api/post/add-to-community/route": "app/api/post/add-to-community/route.js"
 }
