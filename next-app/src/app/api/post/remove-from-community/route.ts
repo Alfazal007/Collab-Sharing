@@ -5,9 +5,12 @@ import { postToCommunityType } from "@/zodTypes/addPostToCommunityType";
 import { ZodError } from "@/zodTypes/registerUserType";
 import prisma from "@/db/db";
 import { ApiResponse } from "@/utils/ApiResponse";
+import { getToken } from "next-auth/jwt";
+import { getCsrfToken } from "next-auth/react";
 
 export async function POST(request: Request) {
     const session = await getServerSession(authOptions);
+
     if (!session || !session.user || !session.user.id) {
         return Response.json(
             new ApiError(400, "No user found try logging in again", [], []),

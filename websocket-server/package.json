@@ -1,0 +1,20 @@
+{
+    "name": "websocket-server",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "dev": "tsc -b && node dist/index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "dependencies": {
+        "next-auth": "^4.24.7",
+        "typescript": "^5.5.4",
+        "ws": "^8.18.0"
+    },
+    "devDependencies": {
+        "@types/ws": "^8.5.11"
+    }
+}

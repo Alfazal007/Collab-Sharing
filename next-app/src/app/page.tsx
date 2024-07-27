@@ -1,11 +1,24 @@
 "use client";
 
 import { Skeleton } from "@/components/ui/skeleton";
+import axios from "axios";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Home() {
     const { data: session, status } = useSession();
+    const [user, setUser] = useState<any>();
+
+    useEffect(() => {
+        async function getter() {
+            if (status === "authenticated") {
+                const user = await axios.get("/api/user/getCurrentUser");
+                setUser(user.data.data);
+            }
+        }
+        getter();
+    }, [status]);
     const router = useRouter();
     if (status === "loading") {
         return (
@@ -26,5 +39,10 @@ export default function Home() {
         router.push("/sign-in");
     }
     console.log(session?.user);
-    return <div>This is the init project by the user {session?.user.name}</div>;
+    return (
+        <div>
+            This is the init project by the user {session?.user.name}{" "}
+            {JSON.stringify(user)}{" "}
+        </div>
+    );
 }
