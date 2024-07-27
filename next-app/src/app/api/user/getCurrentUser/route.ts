@@ -26,9 +26,6 @@ export async function GET(request: NextRequest) {
         token: token,
         secret: process.env.NEXT_AUTH_SECRET || "",
     });
-    console.log({ data });
-
-    console.log({ token });
     try {
         const user = await prisma.user.findFirst({
             where: {

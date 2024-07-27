@@ -7,7 +7,6 @@ export async function GET(request: Request) {
         username: searchParams.get("username"),
     };
     const username = params.username;
-    console.log(username);
     if (!username || username.length < 6 || username.length > 20) {
         return Response.json(
             new ApiResponse(200, "Invalid username provided", ""),
@@ -37,7 +36,6 @@ export async function GET(request: Request) {
             }
         );
     } catch (err) {
-        console.log("Here inside catch");
         return Response.json(
             new ApiResponse(500, "Issue talking to the database", ""),
             {

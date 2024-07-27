@@ -30,7 +30,6 @@ export async function POST(request: Request) {
                 const errMsg = err.message;
                 zodErrors.push({ [errPath]: errMsg });
             });
-            console.log({ zodErrors });
             return Response.json(
                 new ApiError(400, "Invalid object", [], zodErrors),
                 {

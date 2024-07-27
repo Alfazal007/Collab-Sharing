@@ -57,7 +57,6 @@ export default function () {
                 let message = response.data.message;
                 setUsernameMessage(message);
             } catch (err) {
-                console.log(err);
                 setUsernameMessage("Issue talking to the server");
             }
             setIsCheckingUsername(false);

@@ -3,6 +3,7 @@ export interface Message {
     email?: string;
     to?: string;
     message?: string;
+    token?: string;
 }
 
 export const CONNECTTOSOCKET = "CONNECT";

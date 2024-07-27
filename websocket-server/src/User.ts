@@ -5,9 +5,13 @@ export class User {
     email: String | null;
     isAuthenticated: boolean;
 
-    constructor(conn: WebSocket, email: String) {
+    constructor(
+        conn: WebSocket,
+        email: String,
+        isAuthenticated: boolean = false
+    ) {
         this.connection = conn;
         this.email = email;
-        this.isAuthenticated = true;
+        this.isAuthenticated = isAuthenticated;
     }
 }
