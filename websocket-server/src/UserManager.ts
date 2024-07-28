@@ -123,13 +123,20 @@ export class UserManager {
         if (from == "") {
             return;
         }
-        await this.redisClient.lPush(
-            "database-redis-sync",
-            JSON.stringify({
-                message: message.message,
-                to: message.to,
-                from,
-            })
-        );
+        try {
+            if (!this.redisClient.isOpen) {
+                await this.redisClient.connect();
+            }
+            await this.redisClient.lPush(
+                "database-redis-sync",
+                JSON.stringify({
+                    message: message.message,
+                    to: message.to,
+                    from,
+                })
+            );
+        } catch (err: any) {
+            console.log(err.message);
+        }
     }
 }
